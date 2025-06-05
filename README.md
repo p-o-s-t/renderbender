@@ -6,6 +6,8 @@ TL;Dr
 
 When Outlook renders inbound events, it uses the ORGANIZER field to render the traffic. There is no validation, and multiple rendering ~~bugs~~ features create some great opportunities for social engineering.
 
+Initially presented at [Bsides DSM 2025](Bsides DSM 2025)
+
 [Accompanying slide deck](https://docs.google.com/presentation/d/1PTmQjviLZidnOCVBLchBL7p7V1Lq_mtfDEBoilKDOFc/edit?usp=sharing)
 
 ## Requirements
