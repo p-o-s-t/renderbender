@@ -1,0 +1,4 @@
+# ignore env files
+.env
+vars.sh
+crafted_invite.txt

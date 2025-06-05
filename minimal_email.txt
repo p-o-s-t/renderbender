@@ -1,0 +1,9 @@
+From:"Nate Subra​" <nate@natesubra.com>
+Subject:Email is cool
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="this-is-a-content-boundary"
+--this-is-a-content-boundary
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+This is a message in text/plain format.
+--this-is-a-content-boundary
