@@ -8,6 +8,6 @@ python3 ./renderbender.py \
     --spoof-from-name 'Tim Cook' \
     --target 'nate@natesubra.com' \
     --target-cn 'Nate Subra' \
-    --subject 'Example 2 Subject' \
+    --subject 'Example 2 Subject - Priority Example' \
     --tz 'America/Chicago' \
     --priority 1

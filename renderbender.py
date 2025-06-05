@@ -51,24 +51,25 @@ parser = argparse.ArgumentParser(
     description="Sends phishing emails with 'on behalf of' with calender invites"
 )
 
-parser.add_argument('--body', metavar='', dest='body', help='Body of the email', required=False)
-parser.add_argument('--disable-forwarding', metavar='', dest='disable_forwarding', default=False, help='Disable forwarding of the email: <True/False>', required=False)
-parser.add_argument('--from', metavar='', dest='from_addr', help='Actual from address', required=True)
-parser.add_argument('--meeting-begin', metavar='', dest='meeting_begin', help='Begin time for Teams meeting', required=False)
-parser.add_argument('--meeting-end', metavar='', dest='meeting_end', help='End time for Teams meeting', required=False)
-parser.add_argument('--meeting-summary', metavar='', dest='meeting_summary', help='The summary (title) for the meeting', required=False)
-parser.add_argument('--password',metavar='',help='SMTP Password', required=False)
-parser.add_argument('--priority', metavar='', type=int, default=5, help='Priority of the event (1-5)', required=False)
-parser.add_argument('--prodid', metavar='', help='Calendar PRODID field', required=False)
+# Required arguments
+parser.add_argument('--from', metavar='', dest='from_addr', help='Actual from email address', required=True)
 parser.add_argument('--spoof-from-name', metavar='', dest='from_name', help='CN for "from" user', required=True)
 parser.add_argument('--spoof-from',metavar='',dest='spoof_from', help='On behalf of email', required=True)
 parser.add_argument('--subject', metavar='', help='Email subject', required=True)
 parser.add_argument('--target-cn', metavar='', dest='target_cn', help='Target CN (rcpt)', required=True)
 parser.add_argument('--target', metavar='', help='Target email (rcpt)', required=True)
 parser.add_argument('--tz', metavar='', help='Timezone for meeting', required=True)
-parser.add_argument('--url', metavar='', help='SMTP server:port', required=False)
-parser.add_argument('--user',metavar='',help='SMTP Username', required=False)
 
+parser.add_argument('--body', metavar='', dest='body', help='Body of the email', required=False)
+parser.add_argument('--disable-forwarding', metavar='', dest='disable_forwarding', default=False, help='Disable forwarding of the event: <True/False>', required=False)
+parser.add_argument('--meeting-begin', metavar='', dest='meeting_begin', help='Begin time for Teams meeting', required=False)
+parser.add_argument('--meeting-end', metavar='', dest='meeting_end', help='End time for Teams meeting', required=False)
+parser.add_argument('--meeting-summary', metavar='', dest='meeting_summary', help='The summary (title) for the meeting', required=False)
+parser.add_argument('--password',metavar='',help='SMTP Password, , will also check env variable SMTP_PASSWORD', required=False)
+parser.add_argument('--priority', metavar='', type=int, default=5, help='Priority of the event (1-5)', required=False)
+parser.add_argument('--prodid', metavar='', help='Calendar PRODID field', required=False)
+parser.add_argument('--url', metavar='', help='SMTP server:port, , will also check env variable SMTP_SERVER', required=False)
+parser.add_argument('--user',metavar='',help='SMTP Username, will also check env variable SMTP_USER', required=False)
 
 args = parser.parse_args()
 
