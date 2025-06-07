@@ -70,6 +70,7 @@ parser.add_argument('--priority', metavar='', type=int, default=5, help='Priorit
 parser.add_argument('--prodid', metavar='', help='Calendar PRODID field', required=False)
 parser.add_argument('--url', metavar='', help='SMTP server:port, , will also check env variable SMTP_SERVER', required=False)
 parser.add_argument('--user',metavar='',help='SMTP Username, will also check env variable SMTP_USER', required=False)
+parser.add_argument('--debug', help='Enable debug, print message prior to sending', action='store_true', required=False)
 
 args = parser.parse_args()
 
@@ -221,7 +222,8 @@ END:VCALENDAR
 
 --{boundary}--"""
 
-print(message)
+if args.debug:
+    print(message)
 
 try:
     logger.info(f"Connecting to SMTP server {url}:{port}")

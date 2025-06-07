@@ -3,7 +3,7 @@
 source ./vars.sh
 
 python3 ./renderbender.py \
-    --from 'test@nosecurity.fyi' \
+    --from 'calendar@nosecurity.fyi' \
     --spoof-from 'tcook@apple.com' \
     --spoof-from-name 'Tim Cook' \
     --target 'nate@natesubra.com' \

@@ -4,7 +4,7 @@ source ./vars.sh
 
 python3 ./renderbender.py \
     --disable-forwarding True \
-    --from 'test@nosecurity.fyi' \
+    --from 'calendar@nosecurity.fyi' \
     --meeting-summary 'MANDATORY: Critical Patch' \
     --priority 1 \
     --spoof-from 'enterprisevm@microsoft.com' \
