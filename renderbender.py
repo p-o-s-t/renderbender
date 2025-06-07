@@ -4,11 +4,11 @@ import argparse
 import logging
 import os
 import pytz
-import random
 import re
 import smtplib
 import string
 import sys
+import secrets
 
 full_timezone_names = {
     "EST": "Eastern Standard Time",
@@ -158,7 +158,7 @@ utc_offset = current_time.utcoffset()
 formatted_offset = f"{utc_offset.total_seconds() // 3600:+03.0f}{abs(utc_offset.seconds // 60 % 60):02}"
 is_dst = bool(current_time.dst())
 boundary = str(uuid4())
-selected_prodid = args.prodid if args.prodid else random.choice(microsoft_prodids)
+selected_prodid = args.prodid if args.prodid else secrets.choice(microsoft_prodids)
 chars = string.ascii_letters + string.digits
 
 message = f"""From: "{args.from_name} <{args.spoof_from}>;" <{args.from_addr}>
@@ -198,7 +198,7 @@ BEGIN:VEVENT
 ORGANIZER;CN="{args.from_name}":mailto:{args.spoof_from}
 ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN="{args.target_cn}":mailto:{args.target}
 DESCRIPTION;LANGUAGE=en-US:{args.subject}
-UID:{''.join(random.choices(chars, k=100)).upper()}RENDERBENDER
+UID:{''.join(secrets.SystemRandom().choices(chars, k=100)).upper()}RENDERBENDER
 SUMMARY;LANGUAGE=en-US:{meeting_summary}
 DTSTART;TZID={full_timezone_names[current_time.tzname()]}:{meeting_begin}
 DTEND;TZID={full_timezone_names[current_time.tzname()]}:{meeting_end}
