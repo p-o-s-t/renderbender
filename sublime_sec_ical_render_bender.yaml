@@ -1,0 +1,14 @@
+name: iCal Render Bender Detection
+severity: medium
+reference: "https://gist.github.com/natesubra/0577178177ef64adce0866ee71ada41a"
+source:
+  type.inbound
+  and any(attachments, .file_extension in (".ical", ".ics", ".ifb", ".icalendar")
+  and any(file.explode(.), 
+    any(.scan.yara.matches,
+      .name == "sus_calendar_attachment") ## to be renamed at later time
+      )
+  )
+tags: 
+  - "Social Engineering"
+  - "Pretext"
