@@ -6,8 +6,9 @@ source:
   and any(attachments, .file_extension in (".ical", ".ics", ".ifb", ".icalendar")
   and any(file.explode(.), 
     any(.scan.yara.matches,
-      .name == "sus_calendar_attachment") ## to be renamed at later time
+      .name == "sus_calendar_attachment")
       )
+  and headers.return_path.email != sender.email.email
   )
 tags: 
   - "Social Engineering"
